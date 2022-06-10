@@ -29,6 +29,32 @@
                 padding: 15px;
                 padding-top: 0;
             }
+            .article {
+                width: 650px;
+                margin: auto;
+                margin-top: 15px;
+                margin-bottom: 50px;
+            }
+            a {
+                color: #000000;
+                text-decoration: none;
+                
+            }
+            a:hover {
+                color: #b34848;
+                cursor: pointer;
+            }
+            .read {
+                text-align: center;
+                vertical-align: center;
+                padding: 0;
+            }
+            .articles-link {
+                margin-bottom: 25px;
+            }
+            .articles-link a:nth-child(2) {
+                margin-left: 450px;
+            }
         </style>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +69,11 @@
     </head>
     <body>
         <div class="container mt-4">
-            <h1>@yield('header')</h1>
+            <div class="articles-link">
+                <h1>
+                    @yield('header')
+                <h1>
+            </div>
             <div>
                 @yield('content')
             </div>
