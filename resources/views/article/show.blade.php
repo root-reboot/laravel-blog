@@ -1,12 +1,8 @@
 @extends('layouts.app')
 @section('title', $article->name)
 @section('header')
-    <div class="articles-link">
-        <h1>
             <a href="/articles">Статьи</a>
-            <a href="/articles">Назад</a>
-        </h1>
-    </div>
+            <a class="back" href="/articles">Назад</a>
 @endsection
 
 @section('content')
