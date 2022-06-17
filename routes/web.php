@@ -20,7 +20,8 @@ Route::get('/', function () {
 
 Route::get('about', [PageController::class, 'about']);
 
-Route::get('articles', [ArticleController::class, 'articles']);
+Route::get('articles', [ArticleController::class, 'articles'])
+    ->name('articles');
 
 Route::get('articles/{id}', [ArticleController::class, 'show'])
     ->name('articles.show');

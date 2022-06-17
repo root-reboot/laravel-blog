@@ -55,6 +55,10 @@
             .articles-link a:nth-child(2) {
                 margin-left: 450px;
             }
+            .articles-link form {
+                margin-left: 410px;
+                margin-top: -35px;
+            }
         </style>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

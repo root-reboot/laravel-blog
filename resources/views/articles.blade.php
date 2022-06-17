@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Статьи')
-@section('header', 'Статьи')
+@section('header')
+            <a href="/articles">Статьи</a>
+            {{Form::open(['url' => route('articles'), 'method' => 'GET'])}}
+                {{Form::text('q', $q)}}
+                {{Form::submit('Поиск')}}
+            {{Form::close()}}
+@endsection
 @section('content')
 <table>
     @foreach ($articles as $article)

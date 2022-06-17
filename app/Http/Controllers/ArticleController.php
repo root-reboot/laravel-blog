@@ -7,17 +7,23 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function articles()
+    public function articles(Request $request)
     {
-        $articles = Article::paginate(2);
 
-        return view('articles', ['articles' => $articles]);
+        $q = $request->input('q');
+
+        if (empty($q)) {
+            $articles = Article::paginate(2);
+        } else {
+            $articles = Article::where('name', 'like', "%{$q}%")->paginate(2);
+        }
+        return view('articles', compact('articles', 'q'));
     }
 
     public function show($id)
     {
-        $article = Article::findOrFail($id);
+        $articles = Article::findOrFail($id);
         
-        return view('article.show', compact('article'));
+        return view('article.show', compact('articles'));
     }
 }
