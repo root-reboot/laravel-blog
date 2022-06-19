@@ -46,9 +46,8 @@ class ArticleController extends Controller
             'body.min'  => 'Минимальня длинна статьи 1000 символов.'
           ]);
         $article = new Article();
-        // $article->name = $data['name'];
-        // $article->body = $data['body'];
-        $article->fill($request->all());
+        $article->name = $data['name'];
+        $article->body = $data['body'];
         $article->save();
         return redirect()
             ->route('articles');

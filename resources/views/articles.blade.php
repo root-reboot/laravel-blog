@@ -15,7 +15,7 @@
         <th colspan="3"><a href="articles/{{ $article->id }}">{{ $article->name }}</a></th>
     </tr>
     <tr>
-        <td colspan="3">{{ Str::limit($article->body, 200) }}</td>
+        <td colspan="3">{{ Str::limit($article->body, 1000) }}</td>
         
     </tr>
     <td></td><td></td><td class="read"><a href="articles/{{ $article->id }}">Читать...</a></td>
