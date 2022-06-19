@@ -2,7 +2,6 @@
 @section('title', $article->name)
 @section('header')
             <a href="/articles">Статьи</a>
-            <a class="back" href="/articles">Назад</a>
 @endsection
 
 @section('content')

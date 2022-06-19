@@ -2,6 +2,7 @@
 @section('title', 'Статьи')
 @section('header')
             <a href="/articles">Статьи</a>
+            <a href="/create">Создание статьи</a>
             {{Form::open(['url' => route('articles'), 'method' => 'GET'])}}
                 {{Form::text('q', $q)}}
                 {{Form::submit('Поиск')}}

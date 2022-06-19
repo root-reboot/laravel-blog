@@ -23,5 +23,11 @@ Route::get('about', [PageController::class, 'about']);
 Route::get('articles', [ArticleController::class, 'articles'])
     ->name('articles');
 
+Route::get('create', [ArticleController::class, 'create'])
+    ->name('articles.create');
+
 Route::get('articles/{id}', [ArticleController::class, 'show'])
     ->name('articles.show');
+
+Route::post('articles', [ArticleController::class, 'store'])
+    ->name('articles.store');

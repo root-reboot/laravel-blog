@@ -53,7 +53,7 @@
                 margin-bottom: 25px;
             }
             .articles-link a:nth-child(2) {
-                margin-left: 450px;
+                margin-left: 10px;
             }
             .articles-link form {
                 margin-left: 410px;
