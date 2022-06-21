@@ -7,9 +7,9 @@
 <table>
     <tr>
         <th>
-        {{ Form::model($articles, ['route' => 'articles.store']) }}
+        {{ Form::model($article, ['route' => ['articles.update', $article], 'method' => 'PATCH']) }}
             @include('article.form')
-            {{ Form::submit('Сохранить') }}
+            {{ Form::submit('Обновить') }}
         {{ Form::close() }}
         </th>
     </tr>

@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 
 class ArticleController extends Controller
 {
-    protected $fillable = ['name', 'body'];
-
     public function articles(Request $request)
     {
         $q = $request->input('q');
@@ -34,21 +34,35 @@ class ArticleController extends Controller
         return view('article.create', compact('articles'));
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $data = $this->validate($request, [
-            'name' => 'required|unique:articles',
-            'body' => 'required|min:1000',
-        ], [
-            'name.required' => 'Поле Название статьи обязательно для заполнения',
-            'name.unique' => 'Данное имя статьи уже существует, придумайте другое имя.',
-            'body.required'  => 'Поле Текст статьи обязательно для заполнения',
-            'body.min'  => 'Минимальня длинна статьи 1000 символов.'
-          ]);
         $article = new Article();
-        $article->name = $data['name'];
-        $article->body = $data['body'];
+        
+        $request->validated();
+        $article->fill($request->all());
         $article->save();
+        
+        return redirect()
+            ->route('articles');
+    }
+
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('article.edit', compact('article'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $article = Article::findOrFail($id);
+		  $this->validate($request, [
+				'name' => 'required|unique:articles,name,' . $article->id,
+				'body' => 'required|min:100',
+            ]);
+        
+        $article->fill($request->all());
+        $article->save();
+        
         return redirect()
             ->route('articles');
     }
