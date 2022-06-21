@@ -18,7 +18,16 @@
         <td colspan="3">{{ Str::limit($article->body, 1000) }}</td>
         
     </tr>
-    <td class="read"><a href="articles/{{ $article->id }}/edit">Редактировать</a></td><td></td><td class="read"><a href="articles/{{ $article->id }}">Читать...</a></td>
+    <td class="read"><a href="articles/{{ $article->id }}/edit">Редактировать</a></td>
+    <td class="read">
+        <a href="{{ route('articles.destroy', $article) }}"
+            data-confirm="Вы уверены?"
+            data-method="delete" 
+            rel="nofollow">
+            Удалить
+        </a>
+    </td>
+    <td class="read"><a href="articles/{{ $article->id }}">Читать...</a></td>
     @endforeach
     <tr>
     <td><a href="{{ $articles->previousPageUrl() }}">Назад</a></td>
