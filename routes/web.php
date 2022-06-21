@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('about', [PageController::class, 'about']);
 
 Route::get('articles', [ArticleController::class, 'articles'])
-    ->name('articles');
+    ->name('articles.index');
 
 Route::get('create', [ArticleController::class, 'create'])
     ->name('articles.create');

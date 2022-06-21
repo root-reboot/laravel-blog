@@ -37,13 +37,12 @@ class ArticleController extends Controller
     public function store(StorePostRequest $request)
     {
         $article = new Article();
-        
         $request->validated();
         $article->fill($request->all());
         $article->save();
         
         return redirect()
-            ->route('articles');
+            ->route('articles.index');
     }
 
     public function edit($id)
@@ -64,7 +63,7 @@ class ArticleController extends Controller
         $article->save();
         
         return redirect()
-            ->route('articles');
+            ->route('articles.index');
     }
 
     public function destroy($id)
@@ -73,6 +72,6 @@ class ArticleController extends Controller
         if ($article) {
         $article->delete();
         }
-        return redirect()->route('articles');
+        return redirect()->route('articles.index');
     }
 }
